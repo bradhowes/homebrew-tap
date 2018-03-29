@@ -9,6 +9,9 @@ class Openvsip < Formula
 
   def install
     mkdir "objdir" do
+      ENV['CC'] = '/usr/bin/cc'
+      ENV['CXX'] = '/usr/bin/c++'
+      ENV['LD'] = '/usr/bin/ld'
       system "../configure", "--silent", "--with-lapack=apple", "--prefix=#{prefix}"
       system "make", "install"
     end
